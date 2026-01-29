@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Installing python3
+      apt:
+        name: python3
+        state: present
+    - name: pip installation
+      apt:
+        name: python3-pip
+        state: present
+    - name: installing java jdk
+      apt:
+        name: openjdk-8-jdk
+        state: present
+    - name: installing mariadb
+      apt:
+        name: mariadb-server
+        state: present
+    - name: Shell Motd Command
+      shell: echo "Ansible Managed node by Molino"
+      register: molino_output
+    - name: Display output
+      debug:
+        msg: "{{ molino_output.stdout }}"
+
+
