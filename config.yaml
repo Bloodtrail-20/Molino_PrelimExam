@@ -2,7 +2,7 @@
 - hosts: all
   become: true
   tasks:
-    - name: Installing python3
+    - name: Installing  python3
       apt:
         name: python3
         state: present
